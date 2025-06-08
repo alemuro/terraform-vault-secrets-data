@@ -1,0 +1,34 @@
+sections:
+  show:
+    - header
+    - providers
+    - inputs
+    - outputs
+sort:
+  enabled: true
+  by: required
+content: |
+  # terraform-vault-secrets
+
+  This module is used to retrieve secrets from HashiCorp Vault or
+  OpenBao in an easy way.
+
+  It requires a list of secrets, and returns a map with the content
+  of each secret (identified by its name).
+
+  {{ .Providers }}
+
+  {{ .Inputs }}
+
+  {{ .Outputs }}
+
+  ## Examples
+
+  ```hcl
+  module "secrets" {
+    source  = "alemuro/secrets-data/vault"
+    version = "1.0.0"
+
+    secrets = [ "cloudflare", "grafana" ]
+  }
+  ```
